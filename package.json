@@ -1,0 +1,26 @@
+{
+  "name": "jellyfin-test-suite",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Jellyfin end-to-end test suite",
+  "license": " GPL-3.0-or-later",
+  "scripts": {
+    "wdio:jellyfin-web": "npm run -w apps/jellyfin-web wdio",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=18.15.0",
+    "npm": ">=9.5.0"
+  },
+  "workspaces": [
+    "apps/jellyfin-web"
+  ],
+  "devDependencies": {
+    "@wdio/cli": "^8.10.7",
+    "@wdio/local-runner": "^8.10.7",
+    "@wdio/mocha-framework": "^8.10.7",
+    "@wdio/spec-reporter": "^8.10.6",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}

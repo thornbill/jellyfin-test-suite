@@ -1,0 +1,16 @@
+{
+  "name": "jellyfin-web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio": "wdio run ./wdio.conf.ts"
+  },
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "chromedriver": "^114.0.1",
+    "wdio-chromedriver-service": "^8.1.1",
+    "wdio-geckodriver-service": "^5.0.1"
+  }
+}
