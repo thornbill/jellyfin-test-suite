@@ -1,5 +1,10 @@
 import type { Options } from '@wdio/types'
 
+// Run tests in headless mode on CI and non-headless otherwise
+// Set to true/false to override
+// See: https://github.com/serenity-js/serenity-js-mocha-webdriverio-template/blob/main/wdio.conf.ts
+const headless = Boolean(process.env.CI);
+
 export const config: Options.Testrunner = {
     //
     // ====================
@@ -7,6 +12,7 @@ export const config: Options.Testrunner = {
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
+    headless,
     autoCompileOpts: {
         autoCompile: true,
         tsNodeOpts: {
@@ -14,8 +20,7 @@ export const config: Options.Testrunner = {
             transpileOnly: true
         }
     },
-    
-    
+
     //
     // ==================
     // Specify Test Files
@@ -61,10 +66,14 @@ export const config: Options.Testrunner = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        // capabilities for local browser web tests
-        browserName: 'firefox' // or "firefox", "microsoftedge", "safari"
-    }],
+    capabilities: [
+        {
+            browserName: 'firefox',
+            'moz:firefoxOptions': {
+                args: [].concat(headless ? ['--headless'] : [])
+            }
+        }
+    ],
     //
     // ===================
     // Test Configurations
