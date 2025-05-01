@@ -4,7 +4,7 @@
 
 * [ ] Add template/script for adding new apps
 * [ ] Add linting
-* [ ] Add CI for running all app tests
+* [x] Add CI for running all app tests
 * [ ] Don't use demo server for tests
 
 ## Running a test suite

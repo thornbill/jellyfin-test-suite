@@ -9,12 +9,16 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
-    public get inputUsername () {
+    public get inputUsername() {
         return $('#txtManualName');
     }
 
-    public get inputPassword () {
+    public get inputPassword() {
         return $('#txtManualPassword');
+    }
+
+    public get btnManualLogin() {
+        return $('button.btnManual');
     }
 
     public get btnSubmit () {
@@ -30,6 +34,7 @@ class LoginPage extends Page {
      * e.g. to login using username and password
      */
     public async login (username: string, password: string) {
+        await this.btnManualLogin.click();
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
